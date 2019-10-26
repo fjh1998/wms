@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wms.dao.ProductMapper">
+  <resultMap id="BaseResultMap" type="com.wms.modal.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="unit_id" jdbcType="INTEGER" property="unitId" />
+    <result column="standards_id" jdbcType="INTEGER" property="standardsId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="min" jdbcType="INTEGER" property="min" />
+    <result column="max" jdbcType="INTEGER" property="max" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, price, unit_id, standards_id, category_id, min, max
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.Product">
+    insert into product (id, name, price, 
+      unit_id, standards_id, category_id, 
+      min, max)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{unitId,jdbcType=INTEGER}, #{standardsId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{min,jdbcType=INTEGER}, #{max,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="standardsId != null">
+        standards_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="min != null">
+        min,
+      </if>
+      <if test="max != null">
+        max,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        #{max,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        standards_id = #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        min = #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        max = #{max,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      unit_id = #{unitId,jdbcType=INTEGER},
+      standards_id = #{standardsId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      min = #{min,jdbcType=INTEGER},
+      max = #{max,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="unit_id" jdbcType="INTEGER" property="unitId" />
+    <result column="standards_id" jdbcType="INTEGER" property="standardsId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="min" jdbcType="INTEGER" property="min" />
+    <result column="max" jdbcType="INTEGER" property="max" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, price, unit_id, standards_id, category_id, min, max
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.Product">
+    insert into product (id, name, price, 
+      unit_id, standards_id, category_id, 
+      min, max)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{unitId,jdbcType=INTEGER}, #{standardsId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{min,jdbcType=INTEGER}, #{max,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="standardsId != null">
+        standards_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="min != null">
+        min,
+      </if>
+      <if test="max != null">
+        max,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        #{max,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        standards_id = #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        min = #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        max = #{max,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      unit_id = #{unitId,jdbcType=INTEGER},
+      standards_id = #{standardsId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      min = #{min,jdbcType=INTEGER},
+      max = #{max,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="unit_id" jdbcType="INTEGER" property="unitId" />
+    <result column="standards_id" jdbcType="INTEGER" property="standardsId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="min" jdbcType="INTEGER" property="min" />
+    <result column="max" jdbcType="INTEGER" property="max" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, price, unit_id, standards_id, category_id, min, max
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.Product">
+    insert into product (id, name, price, 
+      unit_id, standards_id, category_id, 
+      min, max)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{unitId,jdbcType=INTEGER}, #{standardsId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{min,jdbcType=INTEGER}, #{max,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="standardsId != null">
+        standards_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="min != null">
+        min,
+      </if>
+      <if test="max != null">
+        max,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        #{max,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        standards_id = #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        min = #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        max = #{max,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      unit_id = #{unitId,jdbcType=INTEGER},
+      standards_id = #{standardsId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      min = #{min,jdbcType=INTEGER},
+      max = #{max,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="unit_id" jdbcType="INTEGER" property="unitId" />
+    <result column="standards_id" jdbcType="INTEGER" property="standardsId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="min" jdbcType="INTEGER" property="min" />
+    <result column="max" jdbcType="INTEGER" property="max" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, price, unit_id, standards_id, category_id, min, max
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.Product">
+    insert into product (id, name, price, 
+      unit_id, standards_id, category_id, 
+      min, max)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{unitId,jdbcType=INTEGER}, #{standardsId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{min,jdbcType=INTEGER}, #{max,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="standardsId != null">
+        standards_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="min != null">
+        min,
+      </if>
+      <if test="max != null">
+        max,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        #{max,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        standards_id = #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        min = #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        max = #{max,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      unit_id = #{unitId,jdbcType=INTEGER},
+      standards_id = #{standardsId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      min = #{min,jdbcType=INTEGER},
+      max = #{max,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.Product">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="unit_id" jdbcType="INTEGER" property="unitId" />
+    <result column="standards_id" jdbcType="INTEGER" property="standardsId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="min" jdbcType="INTEGER" property="min" />
+    <result column="max" jdbcType="INTEGER" property="max" />
+  </resultMap>
+  <resultMap id="ProductMap" type="com.wms.dto.productDTO">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="price" jdbcType="DOUBLE" property="price" />
+    <result column="min" jdbcType="INTEGER" property="min" />
+    <result column="max" jdbcType="INTEGER" property="max" />
+    <result column="category" jdbcType="VARCHAR" property="category" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="standards" jdbcType="VARCHAR" property="standards" />
+    <result column="warehouse" jdbcType="VARCHAR" property="warehouse" />
+    <result column="storage" jdbcType="INTEGER" property="storage" />
+  </resultMap>
+  <select id="getAllProduct" resultMap="ProductMap">
+    SELECT
+p.id,
+p.`name`,
+pc.`name` category,
+p.price,
+pu.`name` unit,
+ps.`name` standards,
+p.min,
+p.max,
+si.number storage,
+sw.`name` warehouse
+from
+product  p,
+product_unit pu,
+product_category pc,
+product_standards ps,
+storage_info si,
+sys_warehouse sw
+where
+p.unit_id=pu.id and
+p.standards_id=ps.id and
+p.category_id =pc.id and
+p.id=si.product_id and
+sw.id=si.warehouse_id
+  </select>
+  <sql id="Base_Column_List">
+    id, name, price, unit_id, standards_id, category_id, min, max
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from product
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.Product">
+    insert into product (id, name, price, 
+      unit_id, standards_id, category_id, 
+      min, max)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{price,jdbcType=DOUBLE}, 
+      #{unitId,jdbcType=INTEGER}, #{standardsId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{min,jdbcType=INTEGER}, #{max,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.Product">
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="unitId != null">
+        unit_id,
+      </if>
+      <if test="standardsId != null">
+        standards_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="min != null">
+        min,
+      </if>
+      <if test="max != null">
+        max,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        #{max,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.Product">
+    update product
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DOUBLE},
+      </if>
+      <if test="unitId != null">
+        unit_id = #{unitId,jdbcType=INTEGER},
+      </if>
+      <if test="standardsId != null">
+        standards_id = #{standardsId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="min != null">
+        min = #{min,jdbcType=INTEGER},
+      </if>
+      <if test="max != null">
+        max = #{max,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.Product">
+    update product
+    set name = #{name,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DOUBLE},
+      unit_id = #{unitId,jdbcType=INTEGER},
+      standards_id = #{standardsId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      min = #{min,jdbcType=INTEGER},
+      max = #{max,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

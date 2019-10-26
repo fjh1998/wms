@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wms.dao.SysPermissionMapper">
+  <resultMap id="BaseResultMap" type="com.wms.modal.SysPermission">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="modul_name" jdbcType="VARCHAR" property="modulName" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="order" jdbcType="VARCHAR" property="order" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, modul_name, action, permission, order
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission (id, modul_name, action, 
+      permission, order)
+    values (#{id,jdbcType=INTEGER}, #{modulName,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, 
+      #{permission,jdbcType=VARCHAR}, #{order,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="modulName != null">
+        modul_name,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="modulName != null">
+        #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    <set>
+      <if test="modulName != null">
+        modul_name = #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    set modul_name = #{modulName,jdbcType=VARCHAR},
+      action = #{action,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR},
+      order = #{order,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.SysPermission">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="modul_name" jdbcType="VARCHAR" property="modulName" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="order" jdbcType="VARCHAR" property="order" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, modul_name, action, permission, order
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission (id, modul_name, action, 
+      permission, order)
+    values (#{id,jdbcType=INTEGER}, #{modulName,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, 
+      #{permission,jdbcType=VARCHAR}, #{order,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="modulName != null">
+        modul_name,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="modulName != null">
+        #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    <set>
+      <if test="modulName != null">
+        modul_name = #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    set modul_name = #{modulName,jdbcType=VARCHAR},
+      action = #{action,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR},
+      order = #{order,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.SysPermission">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="modul_name" jdbcType="VARCHAR" property="modulName" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="order" jdbcType="VARCHAR" property="order" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, modul_name, action, permission, order
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission (id, modul_name, action, 
+      permission, order)
+    values (#{id,jdbcType=INTEGER}, #{modulName,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, 
+      #{permission,jdbcType=VARCHAR}, #{order,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="modulName != null">
+        modul_name,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="modulName != null">
+        #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    <set>
+      <if test="modulName != null">
+        modul_name = #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    set modul_name = #{modulName,jdbcType=VARCHAR},
+      action = #{action,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR},
+      order = #{order,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.SysPermission">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="modul_name" jdbcType="VARCHAR" property="modulName" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="order" jdbcType="VARCHAR" property="order" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, modul_name, action, permission, order
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission (id, modul_name, action, 
+      permission, order)
+    values (#{id,jdbcType=INTEGER}, #{modulName,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, 
+      #{permission,jdbcType=VARCHAR}, #{order,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="modulName != null">
+        modul_name,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="modulName != null">
+        #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    <set>
+      <if test="modulName != null">
+        modul_name = #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    set modul_name = #{modulName,jdbcType=VARCHAR},
+      action = #{action,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR},
+      order = #{order,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.wms.modal.SysPermission">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="modul_name" jdbcType="VARCHAR" property="modulName" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="order" jdbcType="VARCHAR" property="order" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, modul_name, action, permission, order
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_permission
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission (id, modul_name, action, 
+      permission, order)
+    values (#{id,jdbcType=INTEGER}, #{modulName,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, 
+      #{permission,jdbcType=VARCHAR}, #{order,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wms.modal.SysPermission">
+    insert into sys_permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="modulName != null">
+        modul_name,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="permission != null">
+        permission,
+      </if>
+      <if test="order != null">
+        order,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="modulName != null">
+        #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        #{order,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    <set>
+      <if test="modulName != null">
+        modul_name = #{modulName,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        action = #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="permission != null">
+        permission = #{permission,jdbcType=VARCHAR},
+      </if>
+      <if test="order != null">
+        order = #{order,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wms.modal.SysPermission">
+    update sys_permission
+    set modul_name = #{modulName,jdbcType=VARCHAR},
+      action = #{action,jdbcType=VARCHAR},
+      permission = #{permission,jdbcType=VARCHAR},
+      order = #{order,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
